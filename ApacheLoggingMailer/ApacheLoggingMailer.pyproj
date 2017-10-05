@@ -11,6 +11,9 @@
     <OutputPath>.</OutputPath>
     <Name>ApacheLoggingMailer</Name>
     <RootNamespace>ApacheLoggingMailer</RootNamespace>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>C:\Users\Bernd\Source\Repos\ApacheLoggingMailer\ApacheLoggingMailer\TestData\TextFile1.txt</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

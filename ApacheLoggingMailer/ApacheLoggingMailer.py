@@ -12,11 +12,10 @@ reg_ex_main = re.compile(main_pattern)
 def mail_apache_logs(filepath):
     log_objects = list()
     with open(filepath) as f:
-        for line in f:
-            data = reg_ex_main.match(line)
-            if data:
-                log_objects.append(LogObject(data.group(1), data.group(2), data.group(3), 
-                                             data.group(4), data.group(5), data.group(6)))
+        matches = (reg_ex_main.match(line) for line in f)
+        log_objects = [LogObject(match.group(1), match.group(2), match.group(3), 
+                                 match.group(4), match.group(5), match.group(6))
+                       for match in matches if match]
                 
     portfolio_accesses = get_portfolio_accesses(log_objects)
     client_error_accesses = get_client_error_accesses(log_objects)
@@ -41,7 +40,8 @@ def get_country_city_tuple(ip_address):
 
     return (data['city'], data['country'])
 
-mail_apache_logs(sys.argv[0])
+print(*sys.argv)
+mail_apache_logs(sys.argv[1])
 
 #msg = dict()
 #msg['Subject'] = "fug"
