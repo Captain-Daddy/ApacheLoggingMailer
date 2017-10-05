@@ -22,8 +22,7 @@ def mail_apache_logs(filepath):
     client_error_accesses = get_client_error_accesses(log_objects)
     server_error_accesses = get_server_error_accesses(log_objects)
 
-    get_country_city_tuple(portfolio_accesses[0].ip_address)
-
+    #get_country_city_tuple(portfolio_accesses[0].ip_address)
 
 def get_portfolio_accesses(log_objects):
     return [log for log in log_objects if "GET /portfolio/ " in log.request]
@@ -41,7 +40,14 @@ def get_country_city_tuple(ip_address):
 
     return (data['city'], data['country'])
 
-mail_apache_logs(sys.argv[0])
+# command line args handling
+if len(sys.argv) < 2:
+    mail_apache_logs("TestData/TextFile1.log")
+elif ".log" not in sys.argv[1]:
+    mail_apache_logs("TestData/TextFile1.log")
+else:
+    mail_apache_logs(sys.argv[1])
+    
 
 #msg = dict()
 #msg['Subject'] = "fug"

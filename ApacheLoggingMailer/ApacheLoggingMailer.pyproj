@@ -30,7 +30,7 @@
     <Folder Include="TestData\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestData\TextFile1.txt" />
+    <Content Include="TestData\TextFile1.log" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
